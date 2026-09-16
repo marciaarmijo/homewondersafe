@@ -5,7 +5,6 @@ import { ArrowDown, ArrowRight, Building2, Check, ChevronRight, Construction, Fa
 import { Button } from "@/components/ui/button";
 import logoWhite from "@/assets/LogoJ_M_blanco_sinfondo.png.asset.json";
 import facade from "@/assets/fachada_edificio.png.asset.json";
-import facadeAngle from "@/assets/fachada_diagonal.png.asset.json";
 import bedroom from "@/assets/habitacion1.png.asset.json";
 import living from "@/assets/salacomedor.png.asset.json";
 import dining from "@/assets/comedor.png.asset.json";
