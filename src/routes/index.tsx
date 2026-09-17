@@ -19,7 +19,7 @@ import parking from "@/assets/estacionamiento.png.asset.json";
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwUx7bS13PCeoEQg8ncfs-akfUzY6LT7JZeQAoTh_jJsHppM7vETDW7W_fq6oamo22TkQ/exec";
 const WHATSAPP_URL = "https://wa.me/51957764747?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Home%20Wonder%20Safe";
 const MAPS_URL = "https://maps.app.goo.gl/CMWXnHxwJtmDK5Y78";
-const SHARE_IMAGE_URL = "https://id-preview--df95863b-ab8e-4805-9f25-74665a6a39d0.lovable.app/__l5e/assets-v1/022b0cda-0f26-4b66-94df-1a7825c93b70/fachada_edificio.png";
+const SHARE_IMAGE_URL = "https://www.homewondersafe.com/fachada_edificio.png";
 const leadSchema = z.object({
   nombre: z.string().trim().min(3, "Ingresa tu nombre completo").max(100),
   correo: z.string().trim().email("Ingresa un correo válido").max(255),
