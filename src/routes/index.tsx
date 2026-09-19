@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { z } from "zod";
 import { ArrowDown, Building2, Check, ChevronRight, Construction, LockKeyhole, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Sparkles, Users, Waves, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -51,35 +51,7 @@ function SectionHeading({ number, eyebrow, title, subtitle, titleClassName = "" 
 }
 
 function HeroVideo() {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    type Player = { destroy: () => void };
-    type YouTubeWindow = Window & {
-      YT?: { Player: new (element: HTMLIFrameElement, options: { events: { onStateChange: (event: { data: number }) => void } }) => Player };
-      onYouTubeIframeAPIReady?: () => void;
-    };
-    const youtubeWindow = window as YouTubeWindow;
-    let player: Player | undefined;
-    const initializePlayer = () => {
-      if (!youtubeWindow.YT?.Player || !iframeRef.current) return;
-      player = new youtubeWindow.YT.Player(iframeRef.current, { events: { onStateChange: (event) => event.data === 1 && setIsPlaying(true) } });
-    };
-
-    if (youtubeWindow.YT?.Player) initializePlayer();
-    else {
-      youtubeWindow.onYouTubeIframeAPIReady = initializePlayer;
-      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
-        const script = document.createElement("script");
-        script.src = "https://www.youtube.com/iframe_api";
-        document.head.appendChild(script);
-      }
-    }
-    return () => player?.destroy();
-  }, []);
-
-  return <div className={`video-cover ${isPlaying ? "is-playing" : ""}`} aria-hidden="true"><div className="video-frame"><iframe ref={iframeRef} src="https://www.youtube.com/embed/ti-4VKrdXg0?enablejsapi=1&autoplay=1&mute=1&playsinline=1&loop=1&playlist=ti-4VKrdXg0&controls=0&showinfo=0&rel=0&modestbranding=1&disablekb=1&fs=0&iv_load_policy=3" title="Home Wonder Safe" allow="autoplay; encrypted-media" tabIndex={-1} /><div className="video-shield" /></div></div>;
+  return <video autoPlay muted loop playsInline preload="auto" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover"><source src="/hero-video.mp4" type="video/mp4" /></video>;
 }
 
 function HomePage() {
