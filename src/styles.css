@@ -173,6 +173,12 @@
   font-variant-numeric: lining-nums tabular-nums;
 }
 
+.brand-amp {
+  font-family: var(--font-sans);
+  font-feature-settings: "case" 0, "dlig" 0, "ss01" 0;
+  font-style: normal;
+}
+
 @keyframes reveal-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes scroll-drift { 0%, 100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(8px); opacity: 1; } }
 @keyframes soft-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: .45; } }
@@ -182,7 +188,8 @@
 .scroll-drift { animation: scroll-drift 2s ease-in-out infinite; }
 .soft-pulse { animation: soft-pulse 1.7s ease-in-out infinite; }
 .video-cover { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.video-cover iframe { position: absolute; left: 50%; top: 50%; width: 177.78vh; height: 56.25vw; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); opacity: 0; pointer-events: none; transition: opacity 1s ease; }
+.video-frame { position: absolute; left: 50%; top: 50%; width: 177.78vh; height: 56.25vw; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); pointer-events: none; }
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; opacity: 0; pointer-events: none; transition: opacity 1s ease; }
 .video-cover.is-playing iframe { opacity: 1; }
 .video-shield { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal, .reveal.is-visible { opacity: 1; transform: none; animation: none; } .scroll-drift, .soft-pulse { animation: none; } }
